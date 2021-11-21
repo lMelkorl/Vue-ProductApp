@@ -51,7 +51,7 @@
           id="unitsInStock"
         />
       </div>
-      <br/>
+      <br />
       <button type="submit" class="btn btn-success">Add Product</button>
     </form>
   </div>
@@ -71,11 +71,11 @@ export default {
       },
     };
   },
-    methods:{
-        handleAdd(){
-            this.$emit("add:product",this.product)
-        }  
-    }
+  methods: {
+    handleAdd() {
+      this.$emit("add:product", this.product);
+    },
+  },
 };
 </script>
 

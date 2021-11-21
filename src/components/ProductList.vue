@@ -48,7 +48,6 @@
           </td>
           <td v-else>{{ product.categoryId }}</td>
 
-
           <td v-if="updateId === product.id">
             <input
               type="text"
@@ -58,7 +57,6 @@
             />
           </td>
           <td v-else>{{ product.quantityPerUnit }}</td>
-
 
           <td v-if="updateId === product.id">
             <input
@@ -96,25 +94,15 @@
             </button>
           </td>
 
-
           <td v-else>
-            <button
-              class="btn btn-sm btn-primary"
-              @click="handleSave(product)"
-            >
+            <button class="btn btn-sm btn-primary" @click="handleSave(product)">
               Save
             </button>
             &nbsp;
-            <button
-              class="btn btn-sm btn-danger"
-              @click="updateId=null"
-            >
+            <button class="btn btn-sm btn-danger" @click="updateId = null">
               Cancel
             </button>
           </td>
-
-           
-          
         </tr>
       </tbody>
     </table>
@@ -136,16 +124,16 @@ export default {
     handleUpdate(product) {
       this.updateId = product.id;
     },
-    handleSave(product){
-        this.$emit("update:product",product)
-        this.updateId=null
-    }
+    handleSave(product) {
+      this.$emit("update:product", product);
+      this.updateId = null;
+    },
   },
 };
 </script>
 
 <style scoped>
-#list{
-    margin: 100px;
+#list {
+  margin: 100px;
 }
 </style>

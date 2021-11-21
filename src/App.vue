@@ -34,8 +34,8 @@ export default {
 
     async deleteProduct(product) {
       await fetch("http://localhost:3000/products/" + product.id, {
-        method:"DELETE"
-      })
+        method: "DELETE",
+      });
 
       this.products = this.products.filter(
         (productToFilter) => productToFilter.id !== product.id
@@ -43,14 +43,19 @@ export default {
     },
 
     async updateProduct(product) {
-      const result = await fetch("http://localhost:3000/products/" + product.id, {
-        method: "PUT",
-        body: JSON.stringify(product),
-        headers: { "Content-Type": "application/json" },
-      });
+      const result = await fetch(
+        "http://localhost:3000/products/" + product.id,
+        {
+          method: "PUT",
+          body: JSON.stringify(product),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
       const updatedProduct = await result.json();
-      this.products = this.products.map(product => product.id === updatedProduct.id ? updatedProduct : product)
+      this.products = this.products.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      );
     },
 
     async addProduct(product) {
